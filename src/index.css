@@ -40,24 +40,10 @@ All colors MUST be HSL.
     
     --gradient-hero: linear-gradient(135deg, hsl(268 100% 50%), hsl(316 100% 50%));
     --gradient-soft: linear-gradient(180deg, hsl(270 60% 95%), hsl(40 30% 97%));
+    --gradient-header: linear-gradient(90deg, hsl(268 100% 50%), hsl(270 70% 65%));
     --glow-primary: 0 0 40px hsl(268 100% 50% / 0.4);
     --glow-accent: 0 0 30px hsl(316 100% 50% / 0.3);
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --glow-neon: 0 0 20px hsl(268 100% 50%), 0 0 40px hsl(268 100% 50%), 0 0 60px hsl(268 100% 50%);
   }
 
   .dark {
@@ -88,14 +74,7 @@ All colors MUST be HSL.
     --border: 268 20% 25%;
     --input: 268 20% 25%;
     --ring: 268 100% 60%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --gradient-header: linear-gradient(90deg, hsl(268 100% 40%), hsl(270 70% 55%));
   }
 }
 
@@ -106,5 +85,10 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+  
+  @keyframes scanning {
+    0% { top: 0%; }
+    100% { top: 100%; }
   }
 }

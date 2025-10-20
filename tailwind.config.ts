@@ -109,6 +109,38 @@ export default {
             opacity: "0",
           },
         },
+        "shake": {
+          "0%, 100%": { transform: "rotate(0deg)" },
+          "10%, 30%, 50%, 70%, 90%": { transform: "rotate(-3deg)" },
+          "20%, 40%, 60%, 80%": { transform: "rotate(3deg)" },
+        },
+        "bounce-text": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "spin-cart": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "dance": {
+          "0%, 100%": { transform: "translateY(0) rotate(0deg)" },
+          "25%": { transform: "translateY(-10px) rotate(-5deg)" },
+          "75%": { transform: "translateY(-10px) rotate(5deg)" },
+        },
+        "float-box": {
+          "0%": { 
+            transform: "translateY(0) rotate(0deg)",
+            opacity: "0.8",
+          },
+          "50%": { 
+            transform: "translateY(-30px) rotate(5deg)",
+            opacity: "1",
+          },
+          "100%": { 
+            transform: "translateY(0) rotate(0deg)",
+            opacity: "0.8",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -118,6 +150,11 @@ export default {
         "spin-slow": "spin-slow 8s linear infinite",
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         "bubble-rise": "bubble-rise 15s ease-in infinite",
+        "shake": "shake 0.5s ease-in-out",
+        "bounce-text": "bounce-text 0.6s ease-in-out",
+        "spin-cart": "spin-cart 3s linear infinite",
+        "dance": "dance 2s ease-in-out infinite",
+        "float-box": "float-box 4s ease-in-out infinite",
       },
     },
   },

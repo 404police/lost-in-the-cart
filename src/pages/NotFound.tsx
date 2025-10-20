@@ -1,87 +1,114 @@
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Home, ShoppingBag } from "lucide-react";
 import NotFoundHeader from "@/components/NotFoundHeader";
-import FloatingElements from "@/components/FloatingElements";
+import GlowingParticles from "@/components/GlowingParticles";
 import VideoSection from "@/components/VideoSection";
+import Animated404 from "@/components/Animated404";
 
 const NotFound = () => {
   const location = useLocation();
+  const [isTextHovered, setIsTextHovered] = useState(false);
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
   }, [location.pathname]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-background via-secondary/30 to-background">
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-background via-secondary/40 to-background">
       <NotFoundHeader />
-      <FloatingElements />
+      <GlowingParticles />
 
-      <main className="relative z-10 flex min-h-screen items-center justify-center px-4 pt-20 pb-12">
-        <div className="container max-w-6xl mx-auto text-center space-y-12">
-          {/* 404 Hero Text */}
-          <div className="space-y-6 animate-in fade-in duration-700">
-            <div className="relative inline-block">
-              <h1 className="text-[120px] md:text-[180px] font-black bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent leading-none animate-pulse-glow">
-                404
-              </h1>
-              <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 blur-3xl -z-10 animate-pulse-glow" />
-            </div>
+      <main className="relative z-10 flex min-h-screen items-center justify-center px-4 pt-24 pb-12">
+        <div className="container max-w-7xl mx-auto text-center space-y-16">
+          {/* Animated 404 Characters */}
+          <div className="animate-in fade-in duration-700">
+            <Animated404 />
+          </div>
 
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
-              Oops! The deal got lost in the cart 🛒
+          {/* Playful Headline with Interactive Effects */}
+          <div 
+            className="space-y-4 animate-in fade-in duration-700 delay-150"
+            onMouseEnter={() => setIsTextHovered(true)}
+            onMouseLeave={() => setIsTextHovered(false)}
+          >
+            <h2 
+              className={`text-3xl md:text-5xl lg:text-6xl font-bold text-foreground transition-all duration-300 ${
+                isTextHovered ? "animate-shake" : ""
+              }`}
+            >
+              Oops! Page not found — but at least we found some laughs! 😄
             </h2>
-
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Looks like this page went on a shopping spree and never came back! Our delivery robot is still searching for it in the cosmic warehouse...
+            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+              This page decided to go on an adventure through the cosmic marketplace. Our delivery robot is still looking for it somewhere between here and infinity...
             </p>
           </div>
 
-          {/* Video Section */}
+          {/* Comedy Video Section */}
           <div className="animate-in fade-in duration-1000 delay-300">
             <VideoSection />
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in fade-in duration-1000 delay-500">
-            <Button variant="hero" size="lg" className="min-w-[200px]" asChild>
-              <a href="/">
-                <Home className="w-5 h-5" />
-                Back to Home
+          {/* CTA Buttons with Neon Effect */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 animate-in fade-in duration-1000 delay-500">
+            <Button 
+              variant="neon" 
+              size="lg" 
+              className="min-w-[220px] text-lg rounded-2xl relative group"
+              style={{
+                boxShadow: "0 0 20px hsl(268 100% 50% / 0.5), 0 0 40px hsl(268 100% 50% / 0.3)",
+              }}
+              asChild
+            >
+              <a href="/" className="relative z-10">
+                <Home className="w-6 h-6" />
+                Go Back Home
+                <span className="absolute inset-0 rounded-2xl bg-gradient-to-r from-accent/50 to-primary/50 blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
               </a>
             </Button>
-            <Button variant="outline" size="lg" className="min-w-[200px] border-primary/50 hover:border-primary" asChild>
+            <Button 
+              variant="outline" 
+              size="lg" 
+              className="min-w-[220px] text-lg border-2 border-primary/50 hover:border-accent hover:bg-accent/10 hover:scale-105 transition-all duration-300 rounded-2xl font-bold" 
+              asChild
+            >
               <a href="/">
-                <ShoppingBag className="w-5 h-5" />
+                <ShoppingBag className="w-6 h-6" />
                 Browse Deals
               </a>
             </Button>
           </div>
 
-          {/* Fun Facts */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 animate-in fade-in duration-1000 delay-700">
-            <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-colors">
-              <div className="text-4xl mb-2">🚀</div>
-              <h3 className="font-bold text-lg mb-2 text-foreground">Lost in Space</h3>
-              <p className="text-sm text-muted-foreground">
-                Our robots are exploring the universe to find your page. They'll be back soon!
+          {/* Fun Info Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 animate-in fade-in duration-1000 delay-700">
+            <div className="group p-8 rounded-3xl bg-card/60 backdrop-blur-md border-2 border-border hover:border-primary transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <div className="text-5xl mb-4 animate-bounce-slow">🚀</div>
+              <h3 className="font-bold text-xl mb-3 text-foreground">Lost in Space</h3>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Our delivery bots are exploring distant galaxies to find your page. They'll return with cosmic deals!
               </p>
             </div>
-            <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-accent transition-colors">
-              <div className="text-4xl mb-2">📦</div>
-              <h3 className="font-bold text-lg mb-2 text-foreground">Package Floating</h3>
-              <p className="text-sm text-muted-foreground">
-                Your page might be packaged with tomorrow's deals. Check back later!
+            <div className="group p-8 rounded-3xl bg-card/60 backdrop-blur-md border-2 border-border hover:border-accent transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <div className="text-5xl mb-4 animate-float" style={{ animationDelay: "0.5s" }}>📦</div>
+              <h3 className="font-bold text-xl mb-3 text-foreground">Package Mystery</h3>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                This page might be wrapped up with tomorrow's surprise deals. Stay tuned for something special!
               </p>
             </div>
-            <div className="p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border hover:border-primary transition-colors">
-              <div className="text-4xl mb-2">💜</div>
-              <h3 className="font-bold text-lg mb-2 text-foreground">Still Love You</h3>
-              <p className="text-sm text-muted-foreground">
-                Errors happen, but our deals don't! Head home for amazing offers.
+            <div className="group p-8 rounded-3xl bg-card/60 backdrop-blur-md border-2 border-border hover:border-primary transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <div className="text-5xl mb-4 animate-pulse-glow">💜</div>
+              <h3 className="font-bold text-xl mb-3 text-foreground">We Still Love You</h3>
+              <p className="text-base text-muted-foreground leading-relaxed">
+                Errors are just detours to better experiences. Head home and discover amazing offers waiting for you!
               </p>
             </div>
+          </div>
+
+          {/* Fun Easter Egg */}
+          <div className="text-sm text-muted-foreground/60 italic mt-12">
+            <p>🎭 Pro tip: Our 404 pages have won "Most Entertaining Error" 3 years in a row*</p>
+            <p className="text-xs mt-2">*Award totally made up by our creative team</p>
           </div>
         </div>
       </main>
