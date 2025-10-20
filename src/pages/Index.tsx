@@ -1,11 +1,31 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Button } from "@/components/ui/button";
+import { ShoppingBag, Home } from "lucide-react";
+import NotFoundHeader from "@/components/NotFoundHeader";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/20 to-background">
+      <NotFoundHeader />
+      <div className="flex min-h-screen items-center justify-center px-4 pt-20">
+        <div className="text-center space-y-6">
+          <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mx-auto">
+            <ShoppingBag className="w-10 h-10 text-white" />
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            Welcome to Uzum Market
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-md mx-auto">
+            Your cosmic shopping destination for amazing deals!
+          </p>
+          <div className="flex items-center justify-center gap-4 pt-4">
+            <Button variant="hero" size="lg" asChild>
+              <a href="/">
+                <Home className="w-5 h-5" />
+                Explore Now
+              </a>
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );
