@@ -141,6 +141,79 @@ export default {
             opacity: "0.8",
           },
         },
+        "wave-bg": {
+          "0%": { transform: "translateX(0) translateY(0)" },
+          "50%": { transform: "translateX(-25%) translateY(-5%)" },
+          "100%": { transform: "translateX(0) translateY(0)" },
+        },
+        "morph-bot": {
+          "0%, 100%": { 
+            borderRadius: "50%",
+            transform: "rotate(0deg) scale(1)",
+          },
+          "33%": { 
+            borderRadius: "30%",
+            transform: "rotate(120deg) scale(1.1)",
+          },
+          "66%": { 
+            borderRadius: "40%",
+            transform: "rotate(240deg) scale(0.95)",
+          },
+        },
+        "cart-fall": {
+          "0%": { 
+            transform: "translateY(0) rotate(0deg)",
+            opacity: "1",
+          },
+          "50%": { 
+            transform: "translateY(30px) rotate(20deg)",
+            opacity: "0.8",
+          },
+          "100%": { 
+            transform: "translateY(0) rotate(0deg)",
+            opacity: "1",
+          },
+        },
+        "sign-wave": {
+          "0%, 100%": { transform: "rotate(-5deg)" },
+          "50%": { transform: "rotate(5deg)" },
+        },
+        "jelly-wave": {
+          "0%, 100%": { 
+            transform: "skewX(0deg) skewY(0deg)",
+          },
+          "25%": { 
+            transform: "skewX(2deg) skewY(-1deg)",
+          },
+          "50%": { 
+            transform: "skewX(0deg) skewY(1deg)",
+          },
+          "75%": { 
+            transform: "skewX(-2deg) skewY(0deg)",
+          },
+        },
+        "orbit": {
+          "0%": { transform: "rotate(0deg) translateX(80px) rotate(0deg)" },
+          "100%": { transform: "rotate(360deg) translateX(80px) rotate(-360deg)" },
+        },
+        "pulse-intense": {
+          "0%, 100%": { 
+            transform: "scale(1)",
+            opacity: "1",
+          },
+          "50%": { 
+            transform: "scale(1.15)",
+            opacity: "0.8",
+          },
+        },
+        "neon-pulse": {
+          "0%, 100%": { 
+            boxShadow: "0 0 20px hsl(268 100% 50%), 0 0 40px hsl(268 100% 50%), 0 0 60px hsl(268 100% 50%)",
+          },
+          "50%": { 
+            boxShadow: "0 0 30px hsl(316 100% 50%), 0 0 60px hsl(316 100% 50%), 0 0 90px hsl(316 100% 50%)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -155,6 +228,14 @@ export default {
         "spin-cart": "spin-cart 3s linear infinite",
         "dance": "dance 2s ease-in-out infinite",
         "float-box": "float-box 4s ease-in-out infinite",
+        "wave-bg": "wave-bg 20s ease-in-out infinite",
+        "morph-bot": "morph-bot 6s ease-in-out infinite",
+        "cart-fall": "cart-fall 3s ease-in-out infinite",
+        "sign-wave": "sign-wave 2s ease-in-out infinite",
+        "jelly-wave": "jelly-wave 3s ease-in-out infinite",
+        "orbit": "orbit 10s linear infinite",
+        "pulse-intense": "pulse-intense 2s ease-in-out infinite",
+        "neon-pulse": "neon-pulse 3s ease-in-out infinite",
       },
     },
   },
